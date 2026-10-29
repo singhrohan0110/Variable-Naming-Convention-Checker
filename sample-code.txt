@@ -1,0 +1,16 @@
+// Sample input for the Variable Naming Convention Checker
+int studentName;
+float total_marks;
+char grade;
+int 2student;
+int class;
+int studentName;
+int student-name;
+int student@name;
+int student name;
+int x;
+int StudentName;
+int MAX_SIZE = 100;
+double salary = 50000.5;
+String firstName = "Junaid";
+int a, b, c;

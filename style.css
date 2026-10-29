@@ -1,0 +1,48 @@
+:root{--bg:#0d1117;--panel:#161b22;--panel2:#1c2330;--line:#30363d;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;--red:#f85149;--yellow:#d29922;--blue:#58a6ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 "Segoe UI",system-ui,sans-serif}
+.top{padding:28px 5vw 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#111827,var(--bg))}
+.top h1{margin:0 0 6px;font-size:1.7rem;letter-spacing:.2px}
+.top p{margin:0;color:var(--muted);max-width:70ch}
+main{max-width:1200px;margin:0 auto;padding:20px 4vw 40px;display:grid;gap:18px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+h2{margin:0 0 12px;font-size:1.1rem}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin-bottom:12px}
+label{display:flex;flex-direction:column;font-size:.8rem;color:var(--muted);gap:4px}
+select,input[type=search]{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font:inherit}
+.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:9px 16px;border-radius:6px;cursor:pointer;font:inherit}
+.btn:hover{border-color:var(--blue)}
+.btn.primary{background:#238636;border-color:#2ea043}
+.btn.danger{color:var(--red)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.editor{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0a0e14}
+#gutter,#codeInput{margin:0;font:14px/1.6 ui-monospace,Consolas,"Courier New",monospace;padding:12px 0}
+#gutter{width:48px;text-align:right;padding-right:10px;color:#566074;background:#0f141c;overflow:hidden;border-right:1px solid var(--line);user-select:none}
+#codeInput{flex:1;min-height:300px;height:300px;resize:vertical;background:transparent;color:#d6e2f0;border:0;padding-left:12px;outline:none;white-space:pre;overflow:auto}
+.hint{margin:8px 0 0;color:var(--muted);font-size:.8rem}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.cards.small{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;color:var(--muted);font-size:.85rem}
+.card span{display:block;font-size:1.9rem;font-weight:700;color:var(--text);line-height:1.1}
+.card.ok span{color:var(--green)}.card.bad span{color:var(--red)}.card.warn span{color:var(--yellow)}.card.info span{color:var(--blue)}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.chip{background:var(--bg);color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:6px 14px;cursor:pointer;font:inherit}
+.chip.active{color:var(--text);border-color:var(--blue);background:#12233a}
+.scroll{overflow-x:auto}.tall{max-height:380px;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--muted);font-weight:600;position:sticky;top:0;background:var(--panel)}
+td.mono,.mono{font-family:ui-monospace,Consolas,monospace}
+.empty{color:var(--muted);text-align:center;padding:18px}
+.badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.75rem;font-weight:600;margin-right:4px;border:1px solid}
+.b-valid,.b-SUCCESS{color:var(--green);border-color:#2a6b36;background:#12261a}
+.b-invalid,.b-ERROR,.b-duplicate{color:var(--red);border-color:#7d2a27;background:#2a1414}
+.b-warning,.b-WARNING{color:var(--yellow);border-color:#6e5316;background:#2a2110}
+.b-INFO,.b-tok{color:var(--blue);border-color:#27507f;background:#10202f}
+.diag{list-style:none;margin:0;padding:0;display:grid;gap:6px;max-height:420px;overflow-y:auto}
+.diag li{padding:8px 12px;border-radius:6px;border-left:4px solid;background:var(--panel2)}
+.diag .d-ERROR{border-color:var(--red)}.diag .d-WARNING{border-color:var(--yellow)}.diag .d-SUCCESS{border-color:var(--green)}.diag .d-INFO{border-color:var(--blue)}
+.diag small{color:var(--muted);margin-left:6px}
+footer{text-align:center;color:var(--muted);padding:18px;font-size:.8rem;border-top:1px solid var(--line)}
+@media(max-width:800px){.cards,.cards.small{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

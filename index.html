@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variable Naming Convention Checker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Variable Naming Convention Checker</h1>
+  <p>A compiler-design mini project: lexical analysis, symbol table and identifier validation for C, C++ and Java declarations.</p>
+</header>
+<main>
+  <section class="panel">
+    <div class="toolbar">
+      <button id="btnAnalyze" class="btn primary">Analyze Code</button>
+      <button id="btnSample" class="btn">Load Sample</button>
+      <button id="btnClear" class="btn danger">Clear</button>
+      <label>Recommended convention
+        <select id="convSelect">
+          <option>camelCase</option><option>snake_case</option><option>PascalCase</option>
+          <option>UPPER_SNAKE_CASE</option><option>lowercase</option>
+        </select></label>
+      <label>Test case
+        <select id="testSelect"><option value="">Choose a test case</option></select></label>
+    </div>
+    <div class="editor">
+      <pre id="gutter" aria-hidden="true">1</pre>
+      <textarea id="codeInput" spellcheck="false" wrap="off" placeholder="Type or paste C / C++ / Java declarations here..."></textarea>
+    </div>
+    <p class="hint">Input is treated only as text. Nothing is executed. Shortcut: Ctrl + Enter.</p>
+  </section>
+
+  <section class="cards">
+    <div class="card"><span id="sTotalVars">0</span>Total Variables</div>
+    <div class="card ok"><span id="sValid">0</span>Valid Variables</div>
+    <div class="card bad"><span id="sInvalid">0</span>Invalid Variables</div>
+    <div class="card warn"><span id="sWarn">0</span>Warnings</div>
+    <div class="card bad"><span id="sDup">0</span>Duplicates</div>
+  </section>
+  <section class="cards small">
+    <div class="card info"><span id="sTokens">0</span>Total Tokens</div>
+    <div class="card info"><span id="sIdent">0</span>Identifiers</div>
+    <div class="card info"><span id="sKeywords">0</span>Keywords</div>
+    <div class="card bad"><span id="sErrors">0</span>Errors</div>
+  </section>
+
+  <section class="panel">
+    <h2>Variable analysis</h2>
+    <div class="toolbar">
+      <div class="filters" id="filters">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="valid">Valid</button>
+        <button class="chip" data-filter="invalid">Invalid</button>
+        <button class="chip" data-filter="warning">Warning</button>
+        <button class="chip" data-filter="duplicate">Duplicate</button>
+      </div>
+      <input id="searchBox" type="search" placeholder="Search by name or type">
+    </div>
+    <div class="scroll"><table>
+      <thead><tr><th>Line</th><th>Variable</th><th>Type</th><th>Initial value</th><th>Detected convention</th><th>Expected convention</th><th>Status</th></tr></thead>
+      <tbody id="varBody"></tbody></table></div>
+  </section>
+
+  <section class="panel">
+    <h2>Diagnostics</h2>
+    <ul id="diagList" class="diag"></ul>
+  </section>
+
+  <section class="panel">
+    <h2>Symbol table</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>Name</th><th>Data type</th><th>Scope</th><th>Line</th><th>Convention</th><th>Status</th></tr></thead>
+      <tbody id="symBody"></tbody></table></div>
+  </section>
+
+  <section class="panel">
+    <h2>Token table (lexical analyzer output)</h2>
+    <div class="scroll tall"><table>
+      <thead><tr><th>Token</th><th>Lexeme</th><th>Type</th><th>Line</th><th>Position</th></tr></thead>
+      <tbody id="tokenBody"></tbody></table></div>
+  </section>
+</main>
+<footer>Compiler Construction mini project | Source code, lexical analysis, tokens, symbol table, diagnostics</footer>
+<script src="script.js"></script>
+</body>
+</html>
